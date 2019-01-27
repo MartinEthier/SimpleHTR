@@ -79,7 +79,7 @@ class Model:
 		numHidden = 256
 		#cells = [tf.contrib.rnn.LSTMCell(num_units=numHidden, state_is_tuple=True, reuse=reuse) for _ in range(2)] # 2 layers
 		cells = [tf.contrib.rnn.LSTMCell(num_units=numHidden, state_is_tuple=True, reuse=reuse), tf.contrib.rnn.LSTMCell(num_units=numHidden, state_is_tuple=True, reuse=reuse)] # stack basic cells
-		stacked = tf.contrib.rnn.MultiRNNCell(cells, state_is_tuple=True)
+		stacked = tf.contrib.rnn.MultiRNNCell(cells, state_is_tuple=True, reuse=reuse)
 
 		# bidirectional RNN
 		# BxTxF -> BxTx2H
